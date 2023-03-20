@@ -122,12 +122,12 @@
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData" id ="locationForm">
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
-                  name="location"
+                  name="location[]"
                   value="New York"
                 />
                 <label class="checkbox-label" for="location1">
@@ -138,7 +138,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location2"
-                  name="location"
+                  name="location[]"
                   value="San Francisco"
                 />
                 <label class="checkbox-label" for="location2">
@@ -149,7 +149,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location3"
-                  name="location"
+                  name="location[]"
                   value="Seattle"
                 />
                 <label class="checkbox-label" for="location3">
@@ -160,7 +160,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location4"
-                  name="location"
+                  name="location[]"
                   value="Chicago"
                 />
                 <label class="checkbox-label" for="location4">
@@ -171,7 +171,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location5"
-                  name="location"
+                  name="location[]"
                   value="Boston"
                 />
                 <label class="checkbox-label" for="location5">
@@ -182,14 +182,15 @@
                   class="checkbox-input"
                   type="radio"
                   id="location6"
-                  name="location"
+                  name="location[]"
                   value="Portland"
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label>
-              </div>
-              <p class="submit-error"> Merci de sélectionner la ville dans laquelle vous souhaitez participer </p>
+                <p class="submit-error"> Merci de sélectionner la ville dans laquelle vous souhaitez participer </p>
+              </div> 
+              
 
               <div
                 class="formData">
@@ -197,7 +198,6 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>

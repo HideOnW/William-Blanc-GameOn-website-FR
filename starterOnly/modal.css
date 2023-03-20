@@ -234,7 +234,7 @@ input {
 .submit-error{
   color: #FF4E60;
   font-size: 10px;
-  display: non;
+  display: none;
   padding: 5px;
   display: none;
 }
