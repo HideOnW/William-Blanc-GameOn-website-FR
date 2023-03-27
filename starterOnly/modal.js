@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-// const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 const validForm = document.getElementById('valid-form');
 
@@ -54,22 +53,35 @@ function checkForm(e) {
   const formDataLast = lastName.closest(".formData");
   const errorFieldLast = formDataLast.querySelector(".submit-error");
 
+  let checkFirst = false
+  let checkLast = false
+
 
   if (firstName.value.length < 2 ) {
     errorFieldFirst.style.display = "block";
+    firstName.style.border = "2px solid #FF4E60";
+    checkFirst = false;
   } else { 
     errorFieldFirst.style.display = "none";
+    firstName.style.border = "none";
+    checkFirst = true;
   }
 
   if (lastName.value.length < 2 ) {
-    errorFieldLast.style.display = "block";
+    errorFieldLast.style.display = "block";    
+    lastName.style.border = "2px solid #FF4E60";
+    checkLast = false;
   } else { 
     errorFieldLast.style.display = "none";
+    lastName.style.border = "none";
+    checkLast = true;
   }
 
 
 
   // Vérif Mail
+
+  let checkMail = false
 
   const formDataEmail = emailForm.closest(".formData");
   const errorFielEmail = formDataEmail.querySelector(".submit-error");
@@ -77,12 +89,18 @@ function checkForm(e) {
 
   if (emailForm.value.match(mailformat)){
     errorFielEmail.style.display = "none";
+    emailForm.style.border = "none";
+    checkMail = true;
   } else {
     errorFielEmail.style.display = "block";
+    emailForm.style.border = "2px solid #FF4E60";
+    checkMail = false;
   }
 
 
    // Const Verif Age
+
+   let checkAge = false
 
    var userinput = userInputAge.value;
    var annivDay = new Date(userinput);
@@ -93,14 +111,20 @@ function checkForm(e) {
    const formDataAge = userInputAge.closest(".formData");
    const errorFieldAge = formDataAge.querySelector(".submit-error");
 
-  if (ageUser < 18){
+  if (ageUser < 18 || isNaN(ageUser)){
     errorFieldAge.style.display = "block";
+    userInputAge.style.border = "2px solid #FF4E60";
+    checkAge = false;
   } else {
     errorFieldAge.style.display = "none";
+    userInputAge.style.border = "none";
+    checkAge = true;
   }
 
   
   // Vérif Number 
+
+  let checkTr = false
 
   var nbr = nbrTr.value;
   var regexnbr =/[0-9]{1,2}/;
@@ -110,89 +134,49 @@ function checkForm(e) {
 
   if(nbr.match(regexnbr)){
     errorFieldNbr.style.display = "none";
+    nbrTr.style.border = "none";
+    checkTr = true;
   } else {
-    errorFieldNbr.style.display = "block"
+    errorFieldNbr.style.display = "block";
+    nbrTr.style.border = "2px solid #FF4E60";
+    checkTr = false;
   };
 
   // Vérif Location
   
-  var formDataLoc = new FormData(document.getElementById('locationForm'));
-  const inputLoc = document.getElementById('location1')
-  const formDataLocError = inputLoc.closest(".formData")
-  const errorFieldLoc = formDataLocError.querySelector(".submit-error")
 
-  if(!formDataLoc.has("location[]")){
-    errorFieldLoc.style.display = "none"
+
+  const inputLoc = document.getElementsByName("location");
+  let isChecked = true;
+  let checkLoc = false
+  inputLoc.forEach((location) => { if(location.checked) {isChecked = false}});
+
+  const formDataLoc = document.getElementById('locForm');
+  const formDataLocError = formDataLoc.querySelector(".submit-error");
+  if (isChecked){
+  formDataLocError.style.display= "block";
+  checkLoc = false;
   } else {
-    errorFieldLoc.style.display ="block"
+  formDataLocError.style.display= "none"
+  checkLoc = true;
   }
 
 
+  // Vérif Condition
+
+  let checkCond = false
+  document.getElementById('checkbox1');
+
+
+  // Confirm Form
+
+  if (checkFirst && checkLast && checkMail && checkAge && checkTr && checkLoc ){
+    document.querySelector(".insVal").style.visibility = "visible"   
+    document.querySelector(".modal-body").style.visibility = "hidden" 
+    document.querySelector(".modal-body").style.opacity = "0"
+  }
+  
+
 }
 
-
   
-
-
-  // var checkBoxes = document.getElementsByName("location[]");
-  // var checkLoc = 0;
-
-  // for (var i = 0; i < checkBoxes.length; i++) {
-  //   if (checkBoxes[i].checked) {
-  //     console.log(checkBoxes)
-  //     checkLoc++;
-  //   }
-  // }
-
-  // if (checkBoxes == 1) {
-  //   errorFieldLoc.style.display = "none"
-  // } else {
-  //   errorFieldLoc.style.display = "block"
-  // }
-
-
-
-//   let error = true;
-
-
-//   checkBoxes.forEach((check_box) => {
-//     if (check_box.checked){
-//       error = true;
-//     } else {
-//       error = false;
-//       console.log(error)
-//     }
-//     });
-//     if(error){
-//       errorFieldLoc.style.display = "none";
-//     } else {
-//       errorFieldLoc.style.display = "block";
-//     }
-
-// }
-
-
-
-
-
-  // var form_data = new CheckFormData(document.querySelector("form"));
-  // if(!form_data.has("location")){
-  //   errorFieldLoc1.style.display = "none"
-  // } else {errorFieldLoc1.style.display = "block"}
-
-
-
-
-  
-  
-// else if (document.getElementById('last').value.lenght <2){
-  //   msgError.style.display= "block";
-  //   alert ("Formulaire refusé");
-  // }
-  
-
-  // if (document.getElementById('last').value.length < 2) {
-  // console.log('Veuillez rentrer un nom avec au moins 2 caractère')
-  // } else if (document.getElementById('email').value.match(mailformat)= false){
-  //   console.log('Veuillez rentrer un email valide')
-  // } else {}

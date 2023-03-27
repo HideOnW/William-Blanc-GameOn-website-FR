@@ -107,7 +107,7 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
-                <p class="submit-error"> La personne inscrite doit être majeure </p>
+                <p class="submit-error"> Entrez la date de naissance d'une personne majeure </p>
               </div>
               <div
                 class="formData">
@@ -122,12 +122,12 @@
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData" id ="locationForm">
+                class="formData" id="locForm">
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
-                  name="location[]"
+                  name="location"
                   value="New York"
                 />
                 <label class="checkbox-label" for="location1">
@@ -138,7 +138,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location2"
-                  name="location[]"
+                  name="location"
                   value="San Francisco"
                 />
                 <label class="checkbox-label" for="location2">
@@ -149,7 +149,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location3"
-                  name="location[]"
+                  name="location"
                   value="Seattle"
                 />
                 <label class="checkbox-label" for="location3">
@@ -160,7 +160,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location4"
-                  name="location[]"
+                  name="location"
                   value="Chicago"
                 />
                 <label class="checkbox-label" for="location4">
@@ -171,7 +171,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location5"
-                  name="location[]"
+                  name="location"
                   value="Boston"
                 />
                 <label class="checkbox-label" for="location5">
@@ -182,7 +182,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location6"
-                  name="location[]"
+                  name="location"
                   value="Portland"
                 />
                 <label class="checkbox-label" for="location6">
@@ -220,7 +220,12 @@
               />
             </form>
           </div>
-          <div> Merci pour votre inscritpion </div>
+          <div class="insVal">
+            <h2> Merci pour <br>votre inscritpion</h2>
+            <button class="btn-close">
+              Fermer
+            </button> 
+          </div>
         </div>
       </div>
     </main>
