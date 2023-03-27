@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeBtn = document.querySelector(".close");
+const closeBtnValidForm = document.querySelector(".btn-close")
 const validForm = document.getElementById('valid-form');
 
 // Formulaire Const
@@ -30,6 +31,7 @@ const nbrTr = document.getElementById('quantity');
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeBtn.addEventListener("click", launchclose)
+closeBtnValidForm.addEventListener("click", launchclose)
 validForm.addEventListener("click", checkForm)
 
 
@@ -165,17 +167,25 @@ function checkForm(e) {
   // Vérif Condition
 
   let checkCond = false
-  document.getElementById('checkbox1');
+  const boxCond = document.getElementById('checkbox1');
+  const formDataCondError = boxCond.closest(".formData")
+  const errorCond = formDataCondError.querySelector(".submit-error")
+  if (boxCond.checked){
+    checkCond = true
+    errorCond.style.display = "none"
+  } else {
+    checkCond = false
+    errorCond.style.display = "block"
+  }
 
 
   // Confirm Form
 
-  if (checkFirst && checkLast && checkMail && checkAge && checkTr && checkLoc ){
+  if (checkFirst && checkLast && checkMail && checkAge && checkTr && checkLoc && checkCond ){
     document.querySelector(".insVal").style.visibility = "visible"   
     document.querySelector(".modal-body").style.visibility = "hidden" 
     document.querySelector(".modal-body").style.opacity = "0"
   }
-  
 
 }
 
