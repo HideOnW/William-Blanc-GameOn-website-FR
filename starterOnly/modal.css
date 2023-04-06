@@ -97,7 +97,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -480,6 +479,8 @@ input[data-error]::after {
   text-align: left;
   min-width: 424px;
 }
+
+
 .hero-content::after {
   content: "";
   width: 100%;
@@ -498,6 +499,7 @@ input[data-error]::after {
   font-weight: normal;
   white-space: nowrap;
 }
+
 .hero-text {
   width: 146%;
   font-weight: normal;
@@ -537,6 +539,8 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
+
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -574,6 +578,25 @@ footer {
     text-align: center;
   }
 }
+
+
+@media screen and (max-width: 970px){
+  .hero-headline{
+    white-space: normal;
+  }
+}
+
+@media  screen and (max-width: 455px) {
+  .hero-content{
+    min-width: initial;
+  }
+
+  .hero-headline{
+    font-size: 3rem;
+  }
+  
+}
+
 
 @keyframes modalopen {
   from {
