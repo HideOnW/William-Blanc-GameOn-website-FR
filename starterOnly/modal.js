@@ -1,5 +1,5 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  let x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -39,6 +39,10 @@ validForm.addEventListener("click", checkForm)
 function launchModal() {
   modalbg.style.display = "block";
   modalbg.classList.add("color-blue");
+  document.querySelector(".insVal").style.visibility = "hidden"   
+  document.querySelector(".modal-body").style.visibility = "visible" 
+  document.querySelector(".modal-body").style.opacity = "1"
+
 }
 
 function launchclose(){
@@ -87,7 +91,7 @@ function checkForm(e) {
 
   const formDataEmail = emailForm.closest(".formData");
   const errorFielEmail = formDataEmail.querySelector(".submit-error");
-  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (emailForm.value.match(mailformat)){
     errorFielEmail.style.display = "none";
@@ -104,12 +108,12 @@ function checkForm(e) {
 
    let checkAge = false
 
-   var userinput = userInputAge.value;
-   var annivDay = new Date(userinput);
-   var monthDiff = Date.now() - annivDay.getTime();
-   var ageUserSecond = new Date(monthDiff);
-   var ageUserYear = ageUserSecond.getFullYear();
-   var ageUser = Math.abs(ageUserYear - 1970);
+   let userinput = userInputAge.value;
+   let annivDay = new Date(userinput);
+   let monthDiff = Date.now() - annivDay.getTime();
+   let ageUserSecond = new Date(monthDiff);
+   let ageUserYear = ageUserSecond.getFullYear();
+   let ageUser = Math.abs(ageUserYear - 1970);
    const formDataAge = userInputAge.closest(".formData");
    const errorFieldAge = formDataAge.querySelector(".submit-error");
 
@@ -128,8 +132,8 @@ function checkForm(e) {
 
   let checkTr = false
 
-  var nbr = nbrTr.value;
-  var regexnbr =/[0-9]{1,2}/;
+  let nbr = nbrTr.value;
+  let regexnbr =/[0-9]{1,2}/;
   const formDataNbr = nbrTr.closest(".formData");
   const errorFieldNbr = formDataNbr.querySelector(".submit-error");
   
